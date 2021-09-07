@@ -79,4 +79,12 @@ class Vector {
     static setMag(vec, mag) {
         return vec.normalize().mult(mag);
     }
+
+    static reverse(vec) {
+        let temp = new Vector();
+        temp.x = -vec.x;
+        temp.y = -vec.y;
+
+        return temp;
+    }
 }

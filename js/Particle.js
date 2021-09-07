@@ -26,7 +26,22 @@ class Particle {
         this.acc = force;
     }
 
-    update() {
+    update(width, height) {
+        if (this.position.x + this.radius > width) {
+            this.position.x = width - this.radius
+            this.vel.x *= -1;
+        } else if (this.position.x - this.radius < 0) {
+            this.position.x = this.radius;
+            this.vel.x *= -1;
+        }
+
+        if (this.position.y + this.radius > height) {
+            this.position.y = height - this.radius;
+            this.vel.y *= -1
+        } else if (this.position.y - this.radius < 0) {
+            this.position.y = this.radius;
+            this.vel.y *= -1
+        }
 
         this.vel.add(this.acc);
         this.acc.add(this.vel);
